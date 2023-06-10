@@ -148,6 +148,22 @@ namespace Calculator
 
         }
 
+        private void Button_Click_Square(object sender, RoutedEventArgs e)
+        {
+            checkingEquals();
+            Button b = (Button)sender;
+            string s = (string)b.Content;
+            s = s.Remove(0, 1);
+            if (TextBoxOfNumber.Text == "0")
+            {
+                return;
+            }
+            else
+            {
+                TextBoxOfNumber.Text += s;
+
+            }
+        }
 
 
 
@@ -245,6 +261,10 @@ namespace Calculator
                 permanentNumber = "";
             }
         }
+
+       
+
+
 
 
 
