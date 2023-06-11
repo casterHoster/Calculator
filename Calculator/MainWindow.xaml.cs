@@ -142,8 +142,22 @@ namespace Calculator
             }
             else
             {
-                TextBoxOfNumber.Text += (string)b.Content;
-                permanentNumber += (string)b.Content;
+                if ((TextBoxOfNumber.Text.Substring(TextBoxOfNumber.Text.Length - 1).Equals(",")))
+                {
+                    return;
+                }
+                else
+                {
+                    if (permanentNumber.Contains(","))
+                    {
+                        return;
+                    }
+                   
+
+                                      
+                    TextBoxOfNumber.Text += (string)b.Content;
+                    permanentNumber += (string)b.Content;
+                }
             }
 
         }
@@ -153,7 +167,9 @@ namespace Calculator
             checkingEquals();
             Button b = (Button)sender;
             string s = (string)b.Content;
+
             s = s.Remove(0, 1);
+
             if (TextBoxOfNumber.Text == "0")
             {
                 return;
@@ -161,7 +177,9 @@ namespace Calculator
             else
             {
                 TextBoxOfNumber.Text += s;
-
+                number1 = Convert.ToDouble(permanentNumber);
+                number1 *= number1;
+                permanentNumber = number1.ToString();
             }
         }
 
