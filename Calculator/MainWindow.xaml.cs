@@ -170,7 +170,7 @@ namespace Calculator
 
             s = s.Remove(0, 1);
 
-            if (TextBoxOfNumber.Text == "0")
+            if ((TextBoxOfNumber.Text == "0") || ((TextBoxOfNumber.Text.Substring(TextBoxOfNumber.Text.Length - 1).Equals("²"))))
             {
                 return;
             }
