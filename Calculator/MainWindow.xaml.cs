@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace Calculator
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+    
     public partial class MainWindow : Window
     {
         public bool checkEquals;
@@ -42,20 +40,11 @@ namespace Calculator
             checkingEquals();
 
             Button b = (Button)sender;
+            if (TextBoxOfNumber.Text.Substring(TextBoxOfNumber.Text.Length - 1) == "²")
+            {
+                return;
+            }
 
-            //if (operation == true && ((string)b.Content == "*" || (string)b.Content == "/" || (string)b.Content == "+" || (string)b.Content == "-"))    // проверка для цели исключения дублирования операндов подряд в боксе
-            //{
-            //    return;
-            //}
-
-            //if ((string)b.Content == "*" || (string)b.Content == "/" || (string)b.Content == "+" || (string)b.Content == "-")   // установка флажка для проверки дублирования операнда     
-            //{
-            //    operation = true;
-            //}
-            //else
-            //{
-            //    operation = false;
-            //}
 
             if (TextBoxOfNumber.Text == "0")
             {
@@ -136,6 +125,12 @@ namespace Calculator
         {
             checkingEquals();
             Button b = (Button)sender;
+
+            if(TextBoxOfNumber.Text.Substring(TextBoxOfNumber.Text.Length - 1) == "²")
+            {
+                return;
+            }
+
             if (TextBoxOfNumber.Text == "0")
             {
                 return;
@@ -182,8 +177,6 @@ namespace Calculator
                 permanentNumber = number1.ToString();
             }
         }
-
-
 
 
 
@@ -256,11 +249,7 @@ namespace Calculator
                         numbers[i + 1] = number1 + number2;
                         result = Convert.ToDouble(numbers[i + 1]);
                     }
-                    //if ((string)operands[i] == "-")
-                    //{
-                    //    numbers[i + 1] = number1 - number2;
-                    //    result = Convert.ToDouble(numbers[i + 1]);
-                    //}
+                  
                 }
             }
             checkEquals = true;
@@ -280,23 +269,9 @@ namespace Calculator
             }
         }
 
-       
 
 
-
-
-
-        //private void GetNumbers()
-        //{
-        //    string text = TextBoxOfNumber.Text;
-        //    numbers.Add(text.Substring(0, coordinateOfOperands[0]));
-        //    for (int i = coordinateOfOperands[0]; i < coordinateOfOperands[coordinateOfOperands.Count - 1]; i++)
-        //    {
-        //        numbers.Add(text.Substring(coordinateOfOperands[i], coordinateOfOperands[i + 1]));
-        //    }
-        //    numbers.Add(text.Substring(coordinateOfOperands[coordinateOfOperands.Count - 1], text.Length - 1));
-        //}
-
+        
     }
 
 }
